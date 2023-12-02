@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<resources>
+    <string name="app_name">nomi_s_application7</string>
+    <string name="loading">Loading…</string>
+    <string name="no_internet_connection">No internet connection!</string>
+<string name="lbl_400_00">$400.00</string>
+  <string name="msg_novel_suspense">Novel, Suspense, Psychological 
+Fiction</string>
+  <string name="msg_the_trials_of_a2">The Trials of Apollo is a pentalogy of fantasy adventure and
+ mythological fiction novels written by American author Rick Riordan
+ that collectively form a sequel to the Heroes of Olympus series.
+ It is set in the same world as other Riordan tales, and references
+ characters and happenings from earlier series.</string>
+  <string name="msg_number_of_pages4">Number Of Pages :              336  Pages</string>
+  <string name="msg_genre5">Genre:                   Biography, Autobiography</string>
+  <string name="msg_harry_potter2">HARRY POTTER  &amp;
+SORCERER\u2019S STONE</string>
+  <string name="msg_number_of_pages5">Number Of Pages :          298  Pages</string>
+  <string name="lbl_order_summary">ORDER SUMMARY</string>
+  <string name="lbl_email_address">Email Address</string>
+  <string name="msg_confirm_passwor">Confirm Password</string>
+  <string name="lbl_wellcome_to">WELLCOME To</string>
+  <string name="lbl2">+</string>
+  <string name="lbl_update2">     Update</string>
+  <string name="msg_room_is_a_2010">Room is a 2010 novel by Irish-Canadian author Emma Donoghue. 
+The story is told from the perspective of a five-year-old boy, Jack,
+ who is being held captive in a small room along with his mother.
+ Donoghue conceived the story after hearing about five-year-old 
+Felix in the Fritzl case.</string>
+  <string name="lbl_genre">Genre :</string>
+  <string name="msg_published">Published:                             2016\u20132020</string>
+  <string name="msg_open_blind_eyes">Open Blind Eyes brings you face to face with the reality of sex
+ trafficking in America through the true story viewpoint of a 
+girl from a small town. Rachel was only nine years old when
+ she was first approached by a perpetrator who was known to
+ her as a teacher and coach</string>
+  <string name="lbl_first_name">First Name</string>
+  <string name="msg_published3">Published:                             March 24, 2020</string>
+  <string name="lbl_signup">Signup</string>
+  <string name="lbl_description">Description :</string>
+  <string name="msg_published2">Published:                             June 26, 1997</string>
+  <string name="lbl_omolayo_awojobi">OMOLAYO AWOJOBI</string>
+  <string name="msg_published5">Published:                         November 24, 2020</string>
+  <string name="msg_published4">Published:                             August 6, 2010</string>
+  <string name="msg_the_glass_hotel">"The Glass Hotel is a 2020 novel by Canadian writer Emily St. John Mandel.
+ It is Mandel's fifth novel, and the first since winning the Arthur C. Clarke 
+Award in 2015. It follows the aftermath of a disturbing graffiti incident at 
+a hotel on Vancouver Island and the collapse of an international 
+Ponzi scheme."</string>
+  <string name="msg_continue_readin">Continue Reading</string>
+  <string name="lbl_room">ROOM</string>
+  <string name="lbl_genre4">Genre:                 </string>
+  <string name="msg_total">Total                                     $ 15800.00</string>
+  <string name="lbl_rachel_timothy">RACHEL TIMOTHY</string>
+  <string name="lbl_genre3">Genre:           </string>
+  <string name="lbl_genre2">Genre:            </string>
+  <string name="msg_genre3">Genre:            Mystery, Psychological Fiction</string>
+  <string name="lbl_add_book">Add book</string>
+  <string name="msg_genre4">Genre:            Novel, Suspense, Psychological 
+Fiction</string>
+  <string name="msg_sub_total">Sub-Total                             $ 15000.00</string>
+  <string name="msg_genre2">"Genre:            Novel, Children's literature,
+ Fantasy Fiction, High fantasy"</string>
+  <string name="lbl_j_k_rowling">J.K ROWLING</string>
+  <string name="msg_genre">"Genre:            Greek mythological fiction,
+ fantasy, adventure and children's fiction"</string>
+  <string name="msg_harry_potter_an">"Harry Potter and the Philosopher's Stone is a fantasy novel written by
+ British author J. K. Rowling. The first novel in the Harry Potter series
+ and Rowling's debut novel, it follows Harry Potter, a young wizard who 
+discovers his magical heritage on his eleventh birthday, when he receives 
+a letter of acceptance to Hogwarts School
+ of Witchcraft and Wizardry. "</string>
+  <string name="lbl_trending_book">Trending Book</string>
+  <string name="lbl_300_00">$300.00</string>
+  <string name="msg_novel_children">"Novel, Children's literature,
+ Fantasy Fiction, High fantasy"</string>
+  <string name="lbl_emma_donoghve">EMMA DONOGHVE</string>
+  <string name="lbl_name">Name :</string>
+  <string name="lbl_price">Price :</string>
+  <string name="msg_biography_auto">  Biography, Autobiography</string>
+  <string name="lbl_cancel">Cancel</string>
+  <string name="lbl_rick_riordan">RICK RIORDAN</string>
+  <string name="lbl">-</string>
+  <string name="lbl_410_00">$410.00</string>
+  <string name="msg_continue_shoppi">Continue Shopping</string>
+  <string name="msg_number_of_pages2">Number Of Pages :              430 Pages</string>
+  <string name="msg_number_of_pages3">Number Of Pages :              320 Pages</string>
+  <string name="msg_mystery_psycho"> Mystery, Psychological Fiction</string>
+  <string name="lbl_search">Search</string>
+  <string name="msg_language2">Language :                        English</string>
+  <string name="lbl_last_name">Last Name</string>
+  <string name="lbl_2">2</string>
+  <string name="lbl_add_to_cart">ADD TO CART</string>
+  <string name="lbl_kitab">Kitab</string>
+  <string name="lbl_registeration">Registeration</string>
+  <string name="msg_emily_st_john_m">EMILY ST.JOHN MANDEL</string>
+  <string name="msg_greek_mythologi">"Greek mythological fiction,
+ fantasy, adventure and children's fiction"</string>
+  <string name="lbl_login">Login</string>
+  <string name="lbl_checkout">Checkout</string>
+  <string name="lbl_deascription">Deascription</string>
+  <string name="lbl_qty">QTY</string>
+  <string name="lbl_add">     Add</string>
+  <string name="lbl_update_book">Update Book</string>
+  <string name="lbl_add_a_book">    Add a book</string>
+  <string name="lbl_75">75%</string>
+  <string name="lbl_book_details">Book Details</string>
+  <string name="lbl_password">Password</string>
+  <string name="lbl_the_glass_hotel">THE GLASS HOTEL</string>
+  <string name="lbl_reading">Reading</string>
+  <string name="lbl_no_of_pages">No Of Pages:</string>
+  <string name="lbl_published">Published: </string>
+  <string name="lbl_update">Update</string>
+  <string name="lbl_language">Language:</string>
+  <string name="msg_number_of_pages">Number Of Pages :              330 Pages</string>
+  <string name="msg_harry_potter">HARRY POTTER
+ &amp;
+SORCERER\u2019S STONE</string>
+  <string name="lbl_open_blind_eyes">OPEN BLIND EYES</string>
+  <string name="lbl_explore">Explore</string>
+  <string name="msg_language">Language :                            English</string>
+  <string name="msg_the_trials_of_a">THE TRIALS OF APOLLO</string>
+  <string name="msg_i_have_a_great">I HAVE A GREAT FUTURE</string>
+  <string name="lbl_bookmark">Bookmark</string>
+  <string name="lbl_200_00">$200.00</string>
+  <string name="lbl_author">Author :</string>
+</resources>

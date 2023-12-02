@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="paymentVM" type="com.nomisapplication.app.modules.payment.data.viewmodel.PaymentVM"/>
+    </data>
+    <LinearLayout android:id="@+id/linearPayment"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        android:orientation="vertical" style="@style/groupStylegray_51">
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnOrderSummary"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:paddingBottom="@dimen/_16pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_16pxv" android:singleLine="true"
+            android:text="@string/lbl_order_summary"
+            android:textAllCaps="false" style="@style/btnSolid" tools:text="@string/lbl_order_summary"/>
+        <TextView android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:id="@+id/txtPrice"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_65pxh"
+            android:layout_marginStart="@dimen/_65pxh"
+            android:layout_marginTop="@dimen/_50pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:text="@{paymentVM.paymentModel.txtPrice}"
+            style="@style/txtRobotoregular18" tools:text="@string/msg_sub_total"/>
+        <TextView android:ellipsize="end"
+            android:gravity="center_horizontal"
+            android:id="@+id/txtPriceOne"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_65pxh"
+            android:layout_marginStart="@dimen/_65pxh"
+            android:layout_marginTop="@dimen/_27pxv"
+            android:layout_width="match_parent"
+            android:singleLine="true"
+            android:text="@{paymentVM.paymentModel.txtPriceOne}"
+            style="@style/txtRobotoregular18" tools:text="@string/msg_total"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnCheckout"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_68pxv"
+            android:layout_marginEnd="@dimen/_65pxh"
+            android:layout_marginStart="@dimen/_65pxh"
+            android:layout_marginTop="@dimen/_63pxv"
+            android:layout_width="@dimen/_228pxh"
+            android:paddingBottom="@dimen/_19pxv"
+            android:paddingEnd="@dimen/_30pxh"
+            android:paddingStart="@dimen/_30pxh"
+            android:paddingTop="@dimen/_19pxv" android:singleLine="true"
+            android:text="@string/lbl_checkout"
+            android:textAllCaps="false" style="@style/btnSolidRounded_2" tools:text="@string/lbl_checkout"/>
+        <androidx.appcompat.widget.AppCompatButton
+            android:ellipsize="end" android:gravity="center"
+            android:id="@+id/btnContinueShopping"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="@dimen/_68pxv"
+            android:layout_marginBottom="@dimen/_20pxv"
+            android:layout_marginEnd="@dimen/_65pxh"
+            android:layout_marginStart="@dimen/_65pxh"
+            android:layout_marginTop="@dimen/_51pxv"
+            android:layout_width="@dimen/_228pxh"
+            android:paddingBottom="@dimen/_19pxv"
+            android:paddingEnd="@dimen/_11pxh"
+            android:paddingStart="@dimen/_11pxh"
+            android:paddingTop="@dimen/_19pxv" android:singleLine="true"
+            android:text="@string/msg_continue_shoppi"
+            android:textAllCaps="false" style="@style/btnSolidRounded_3" tools:text="@string/msg_continue_shoppi"/>
+    </LinearLayout>
+</layout>

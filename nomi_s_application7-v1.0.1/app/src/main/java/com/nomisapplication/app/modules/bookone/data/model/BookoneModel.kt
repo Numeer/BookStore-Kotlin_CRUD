@@ -1,5 +1,7 @@
 package com.nomisapplication.app.modules.bookone.`data`.model
 
+import android.os.Parcel
+import android.os.Parcelable
 import com.nomisapplication.app.R
 import com.nomisapplication.app.appcomponents.di.MyApp
 import kotlin.String
@@ -92,4 +94,53 @@ data class BookoneModel(
    */
   var txtADDTOCART: String? = MyApp.getInstance().resources.getString(R.string.lbl_add_to_cart)
 
-)
+) : Parcelable {
+
+  override fun writeToParcel(parcel: Parcel, flags: Int) {
+    parcel.writeString(txtRICKRIORDAN)
+    parcel.writeString(txtTHETRIALSOFA)
+    parcel.writeString(txtPrice)
+    parcel.writeString(txtLanguage)
+    parcel.writeString(txtLanguageOne)
+    parcel.writeString(txtLanguageTwo)
+    parcel.writeString(txtDescription)
+    parcel.writeString(txtDescriptionOne)
+    // Write other properties...
+  }
+
+  override fun describeContents(): Int {
+    return 0
+  }
+
+  companion object CREATOR : Parcelable.Creator<BookoneModel> {
+    override fun createFromParcel(parcel: Parcel): BookoneModel {
+      return BookoneModel(parcel)
+    }
+
+    override fun newArray(size: Int): Array<BookoneModel?> {
+      return arrayOfNulls(size)
+    }
+  }
+
+  // Secondary constructor for creating from parcel
+  private constructor(parcel: Parcel) : this(
+//    txtGroupFortyFour = parcel.readString(),
+//    txtBookDetails = parcel.readString(),
+    txtRICKRIORDAN = parcel.readString(),
+    txtTHETRIALSOFA = parcel.readString(),
+    txtPrice = parcel.readString(),
+//    txtGroupFortyOne = parcel.readString(),
+    txtLanguage = parcel.readString(),
+    txtLanguageOne = parcel.readString(),
+    txtLanguageTwo = parcel.readString(),
+    txtDescription = parcel.readString(),
+//    txtDeascription = parcel.readString(),
+    txtDescriptionOne = parcel.readString(),
+//    txtQTY = parcel.readString(),
+//    txtOne = parcel.readString(),
+//    txtTwo = parcel.readString(),
+//    txtThree = parcel.readString(),
+//    txtADDTOCART = parcel.readString()
+  )
+}
+

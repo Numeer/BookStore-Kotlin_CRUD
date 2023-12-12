@@ -10,4 +10,5 @@ class BookoneVM : ViewModel(), KoinComponent {
   val bookoneModel: MutableLiveData<BookoneModel> = MutableLiveData(BookoneModel())
 
   var navArguments: Bundle? = null
+
 }

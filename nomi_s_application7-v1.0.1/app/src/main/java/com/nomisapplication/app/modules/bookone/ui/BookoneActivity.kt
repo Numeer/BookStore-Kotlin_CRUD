@@ -3,10 +3,12 @@ package com.nomisapplication.app.modules.bookone.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.viewModels
 import com.nomisapplication.app.R
 import com.nomisapplication.app.appcomponents.base.BaseActivity
 import com.nomisapplication.app.databinding.ActivityBookoneBinding
+import com.nomisapplication.app.modules.bookone.data.model.BookoneModel
 import com.nomisapplication.app.modules.bookone.`data`.viewmodel.BookoneVM
 import com.nomisapplication.app.modules.frametwelve.ui.FrameTwelveActivity
 import com.nomisapplication.app.modules.mainpage.ui.MainpageActivity
@@ -19,7 +21,18 @@ class BookoneActivity : BaseActivity<ActivityBookoneBinding>(R.layout.activity_b
 
   override fun onInitialized(): Unit {
     viewModel.navArguments = intent.extras?.getBundle("bundle")
+    val bookoneModel = intent.getParcelableExtra<BookoneModel>("BOOKONE_MODEL")
+    viewModel.bookoneModel.value = bookoneModel
+
     binding.bookoneVM = viewModel
+    binding.txtRICKRIORDAN.text = bookoneModel?.txtRICKRIORDAN ?: ""
+    binding.txtTHETRIALSOFA.text = bookoneModel?.txtTHETRIALSOFA ?: ""
+    binding.txtPrice.text = bookoneModel?.txtPrice ?: ""
+    binding.txtLanguage.text = bookoneModel?.txtLanguage ?: ""
+    binding.txtLanguageOne.text = bookoneModel?.txtLanguageOne ?: ""
+    binding.txtLanguageTwo.text = bookoneModel?.txtLanguageTwo ?: ""
+    binding.txtDescription.text = bookoneModel?.txtDescription ?: ""
+    binding.txtDescriptionOne.text = bookoneModel?.txtDescriptionOne ?: ""
   }
 
   override fun setUpClicks(): Unit {

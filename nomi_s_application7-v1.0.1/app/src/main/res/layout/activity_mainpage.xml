@@ -133,12 +133,15 @@
                 android:layout_height="@dimen/_289pxv"
                 android:layout_marginStart="@dimen/_10pxh"
                 android:layout_marginTop="@dimen/_1pxv"
-                android:layout_width="@dimen/_395pxh" style="@style/groupStyle">
-                <HorizontalScrollView android:fillViewport="true"
+                android:layout_width="@dimen/_395pxh"
+                style="@style/groupStyle">
+                <HorizontalScrollView
+                    android:fillViewport="true"
                     android:id="@+id/horizontalScrollHorizontalscrollcreatefromfra"
                     android:layout_gravity="start"
                     android:layout_height="wrap_content"
-                    android:layout_width="match_parent" android:scrollbars="none">
+                    android:layout_width="match_parent"
+                    android:scrollbars="none">
                     <LinearLayout
                         android:id="@+id/linearRowcreatefromfra"
                         android:layout_height="wrap_content"
@@ -631,7 +634,7 @@
                         android:layout_width="@dimen/_20pxh"
                         android:scaleType="fitXY"
                         android:src="@drawable/img_vector_deep_orange_700"
-                        tools:ignore="ContentDescription" tools:src="@drawable/img_vector_deep_orange_700"/>
+                        tools:ignore="ContentDescription" tools:src="@android:drawable/ic_delete"/>
                     <TextView android:ellipsize="end"
                         android:gravity="center_horizontal"
                         android:id="@+id/txtExplore"

@@ -5,11 +5,13 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
+import com.nomisapplication.app.MainActivityF
 import com.nomisapplication.app.R
 import com.nomisapplication.app.models.Book
 import com.nomisapplication.app.appcomponents.base.BaseActivity
 import com.nomisapplication.app.appcomponents.network.BookApi
 import com.nomisapplication.app.databinding.ActivitySignupBinding
+import com.nomisapplication.app.modules.firstpage.ui.FirstpageActivity
 import com.nomisapplication.app.modules.mainpage.ui.MainpageActivity
 import com.nomisapplication.app.modules.signup.`data`.viewmodel.SignupVM
 import kotlin.String
@@ -26,36 +28,15 @@ class SignupActivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_sig
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.signupVM = viewModel
   }
-  private val api: BookApi = Retrofit.Builder()
-    .baseUrl("http://10.0.2.2:8000")
-    .addConverterFactory(GsonConverterFactory.create())
-    .build()
-    .create(BookApi::class.java)
-  override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_signup)
 
-    api.getAllBooks().enqueue(object : Callback<List<Book>> {
-      override fun onResponse(call: Call<List<Book>>, response: Response<List<Book>>) {
-        if (response.isSuccessful) {
-          val books = response.body()
-          Log.d("MainActivity","$books")
-        }
-      }
-
-      override fun onFailure(call: Call<List<Book>>, t: Throwable) {
-        // Handle network error
-        Log.e("MainActivity", "Error getting books", t)
-      }
-    })
-  }
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
-      // TODO please, add your navigation code here
+      val destIntent = FirstpageActivity.getIntent(this, null)
+      startActivity(destIntent)
       finish()
     }
     binding.btnSignup.setOnClickListener {
-      val destIntent = MainpageActivity.getIntent(this, null)
+      val destIntent = MainActivityF.getIntent(this, null)
       startActivity(destIntent)
     }
   }

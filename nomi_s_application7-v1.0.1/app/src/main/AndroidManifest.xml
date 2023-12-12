@@ -18,6 +18,8 @@
             android:name="com.nomisapplication.app.modules.signup.ui.SignupActivity" android:screenOrientation="portrait"/>
         <activity
             android:name="com.nomisapplication.app.modules.mainpage.ui.MainpageActivity" android:screenOrientation="portrait"/>
+        <activity
+            android:name="com.nomisapplication.app.MainActivityF" android:screenOrientation="portrait"/>
         <activity android:exported="true"
             android:name="com.nomisapplication.app.modules.firstpage.ui.FirstpageActivity" android:screenOrientation="portrait">
             <intent-filter>

@@ -1,36 +1,86 @@
-#from django.shortcuts import render
-
-# Create your views here.
-
-from django.http import HttpResponse
-from .models import Book
+from django.http import HttpResponse, JsonResponse
 from django.core import serializers
+from django.shortcuts import get_object_or_404
+from .models import Book
 
 def index(request):
-    return HttpResponse("Welcome to Mobile App Development with BITF20")
+    return HttpResponse("Welcome to Mobile App Development with Numeer :)")
 
 def all_books(request):
-    data = serializers.serialize('json', Book.objects.all())
-    return HttpResponse(data)
+    try:
+        books = Book.objects.all()
+        data = serializers.serialize('json', books)
+        return HttpResponse(data)
+    except Exception as e:
+        return HttpResponse(f"An error occurred: {str(e)}", status=500)
 
 def del_book(request):
-    Book.objects.filter(roll_number=request.GET['name']).delete()
-    return HttpResponse("record of "+request.GET['name']+" is deleted successfully")
+    try:
+        name = request.GET.get('name')
+        if name:
+            book = Book.objects.filter(name=name)
+            if book.exists():
+                book.delete()
+                return HttpResponse(f"Record of {name} is deleted successfully")
+            else:
+                return HttpResponse(f"No record found with the name {name}", status=404)
+        else:
+            return HttpResponse("Name parameter is missing", status=400)
+    except Exception as e:
+        return HttpResponse(f"An error occurred: {str(e)}", status=500)
 
 def add_book(request):
-    if request.method == 'GET':
-        book = Book(
-            name=request.GET.get('name', ''), 
-            author=request.GET.get('author', ''),
-            price=float(request.GET.get('price', 0.0)),
-            number_of_pages=int(request.GET.get('noOfPages', 0)),
-            language=request.GET.get('language', ''),
-            genre=request.GET.get('genre', ''),
-            description=request.GET.get('description', ''),
-            published=request.GET.get('published', ''),
-        )
-        book.save()
+    try:
+        if request.method == 'GET':
+            name = request.GET.get('name', '')
+            author = request.GET.get('author', '')
+            price = float(request.GET.get('price', 0.0))
+            number_of_pages = int(request.GET.get('noOfPages', 0))
+            language = request.GET.get('language', '')
+            genre = request.GET.get('genre', '')
+            description = request.GET.get('description', '')
+            published = request.GET.get('published', '')
 
-        return HttpResponse(f"Record of {book.name} is added, if it does not exist already!")
+            book = Book(
+                name=name,
+                author=author,
+                price=price,
+                number_of_pages=number_of_pages,
+                language=language,
+                genre=genre,
+                description=description,
+                published=published,
+            )
+            book.save()
+            return HttpResponse(f"Record of {book.name} is added successfully")
+        else:
+            return HttpResponse("Invalid request method", status=405)
+    except ValueError as ve:
+        return HttpResponse(f"Invalid data format: {str(ve)}", status=400)
+    except Exception as e:
+        return HttpResponse(f"An error occurred: {str(e)}", status=500)
 
-    return HttpResponse("Invalid request method")
+def update_book(request):
+    try:
+        if request.method == 'GET':
+            name = request.GET.get('name', '')
+            book = get_object_or_404(Book, name=name)
+
+            book.author = request.GET.get('author', book.author)
+            book.price = float(request.GET.get('price', book.price))
+            book.number_of_pages = int(request.GET.get('noOfPages', book.number_of_pages))
+            book.language = request.GET.get('language', book.language)
+            book.genre = request.GET.get('genre', book.genre)
+            book.description = request.GET.get('description', book.description)
+            book.published = request.GET.get('published', book.published)
+            
+            book.save()
+            return HttpResponse(f"Record of {book.name} is updated successfully")
+        else:
+            return HttpResponse("Invalid request method", status=405)
+    except ValueError as ve:
+        return HttpResponse(f"Invalid data format: {str(ve)}", status=400)
+    except Book.DoesNotExist:
+        return HttpResponse(f"No record found with the name {name}", status=404)
+    except Exception as e:
+        return HttpResponse(f"An error occurred: {str(e)}", status=500)

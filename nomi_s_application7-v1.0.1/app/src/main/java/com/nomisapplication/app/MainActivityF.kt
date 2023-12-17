@@ -4,12 +4,16 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.AppCompatButton
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.nomisapplication.app.appcomponents.network.BookApi
 import com.nomisapplication.app.models.Book
 import com.nomisapplication.app.models.BookAdapter
+import com.nomisapplication.app.modules.booktwo.ui.BooktwoActivity
+import com.nomisapplication.app.modules.frameeleven.ui.FrameElevenActivity
 import com.nomisapplication.app.modules.signup.ui.SignupActivity
 import retrofit2.Call
 import retrofit2.Callback
@@ -26,17 +30,23 @@ class MainActivityF : AppCompatActivity() {
         setContentView(R.layout.book_layout)
 
         recyclerView = findViewById(R.id.recyclerViewBooks)
-        recyclerView?.layoutManager = LinearLayoutManager(this)
+        recyclerView?.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL,true)
         bookAdapter = BookAdapter(this)
         recyclerView?.adapter = bookAdapter
 
-        // Fetch books from Django server and update the adapter
         fetchBooksFromServer()
+        val btnAddABook: AppCompatButton = findViewById(R.id.btnAddABook)
+
+        btnAddABook.setOnClickListener {
+            val intent = Intent(this, FrameElevenActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 
     private fun fetchBooksFromServer() {
         val api: BookApi = Retrofit.Builder()
-            .baseUrl("http://10.0.2.2:8000")
+            .baseUrl("http://172.26.7.68:8000")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(BookApi::class.java)
@@ -47,11 +57,7 @@ class MainActivityF : AppCompatActivity() {
                     val books = response.body()
                     bookAdapter?.setBooks(books)
                     if (books != null) {
-                        for (book in books) {
-                            Log.d("MainActivityF", "Book Name: ${book.name}")
-                            Log.d("MainActivityF", "Author: ${book.fields.author}")
-                            Log.d("MainActivityF", "Author: ${book.fields.coverImage}")
-                        }
+
                     } else {
                         Log.d("MainActivityF", "No books found")
                     }
@@ -61,16 +67,16 @@ class MainActivityF : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<List<Book>>, t: Throwable) {
-                // Handle network error
                 Log.e("MainActivityF", "Error getting books", t)
             }
         })
     }
 
     companion object {
-        fun getIntent(signupActivity: SignupActivity, nothing: Bundle?): Intent? {
-            val destIntent = Intent(signupActivity, MainActivityF::class.java)
-            destIntent.putExtra("bundle", nothing)
+        const val TAG: String = "MAIN_ACTIVITY_F"
+        fun getIntent(context: Context, bundle: Bundle?): Intent {
+            val destIntent = Intent(context, MainActivityF::class.java)
+            destIntent.putExtra("bundle", bundle)
             return destIntent
         }
     }

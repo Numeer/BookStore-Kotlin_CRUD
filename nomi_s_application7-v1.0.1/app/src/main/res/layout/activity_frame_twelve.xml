@@ -62,17 +62,18 @@
                     android:layout_width="wrap_content"
                     android:singleLine="true"
                     android:text="@{frameTwelveVM.frameTwelveModel.txtAuthor}"
-                    style="@style/txtRobotobold24" tools:text="@string/lbl_author"/>
-                <EditText
+                    style="@style/txtRobotobold24"
+                    tools:text="@string/lbl_author"/>
+                <TextView
                     android:id="@+id/UpdateAuthor"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.72"
-                    android:hint="Updated Author"
-                    android:inputType="text"
+                    android:layout_weight="2"
                     android:textColor="@android:color/black"
                     android:textColorHint="@android:color/black"
-                    tools:ignore="TouchTargetSizeCheck" />
+                    tools:ignore="TouchTargetSizeCheck"
+                    style="@style/txtRobotobold24"
+                    />
             </LinearLayout>
             <LinearLayout android:gravity="start"
                 android:id="@+id/linearRowname"
@@ -249,9 +250,9 @@
                 <TextView
                     android:id="@+id/txtDescription"
                     style="@style/txtRobotobold24"
-                    android:layout_width="83dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="0.39"
+                    android:layout_weight="0.0005"
                     android:ellipsize="end"
                     android:singleLine="true"
                     android:text="@{frameTwelveVM.frameTwelveModel.txtDescription}"

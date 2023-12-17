@@ -3,6 +3,7 @@ package com.nomisapplication.app.modules.firstpage.ui
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.nomisapplication.app.R
 import com.nomisapplication.app.appcomponents.base.BaseActivity
@@ -17,6 +18,8 @@ class FirstpageActivity : BaseActivity<ActivityFirstpageBinding>(R.layout.activi
   private val viewModel: FirstpageVM by viewModels<FirstpageVM>()
 
   override fun onInitialized(): Unit {
+
+    Toast.makeText(baseContext, "Sign Up successfully", Toast.LENGTH_LONG).show()
     viewModel.navArguments = intent.extras?.getBundle("bundle")
     binding.firstpageVM = viewModel
   }

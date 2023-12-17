@@ -2,11 +2,13 @@ package com.nomisapplication.app.modules.bookone.`data`.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import android.widget.ImageView
 import com.nomisapplication.app.R
 import com.nomisapplication.app.appcomponents.di.MyApp
 import kotlin.String
 
 data class BookoneModel(
+  var imageImageOne: String? = "Image",
   /**
    * TODO Replace with dynamic value
    */
@@ -105,6 +107,7 @@ data class BookoneModel(
     parcel.writeString(txtLanguageTwo)
     parcel.writeString(txtDescription)
     parcel.writeString(txtDescriptionOne)
+    parcel.writeString(imageImageOne)
     // Write other properties...
   }
 
@@ -122,25 +125,16 @@ data class BookoneModel(
     }
   }
 
-  // Secondary constructor for creating from parcel
   private constructor(parcel: Parcel) : this(
-//    txtGroupFortyFour = parcel.readString(),
-//    txtBookDetails = parcel.readString(),
     txtRICKRIORDAN = parcel.readString(),
     txtTHETRIALSOFA = parcel.readString(),
     txtPrice = parcel.readString(),
-//    txtGroupFortyOne = parcel.readString(),
     txtLanguage = parcel.readString(),
     txtLanguageOne = parcel.readString(),
     txtLanguageTwo = parcel.readString(),
     txtDescription = parcel.readString(),
-//    txtDeascription = parcel.readString(),
     txtDescriptionOne = parcel.readString(),
-//    txtQTY = parcel.readString(),
-//    txtOne = parcel.readString(),
-//    txtTwo = parcel.readString(),
-//    txtThree = parcel.readString(),
-//    txtADDTOCART = parcel.readString()
+    imageImageOne = parcel.readString(),
   )
 }
 

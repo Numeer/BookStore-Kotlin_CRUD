@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
+import com.nomisapplication.app.MainActivityF
 import com.nomisapplication.app.R
 import com.nomisapplication.app.appcomponents.base.BaseActivity
 import com.nomisapplication.app.appcomponents.network.BookApi
@@ -42,17 +44,16 @@ class FrameElevenActivity : BaseActivity<ActivityFrameElevenBinding>(R.layout.ac
       val published = binding.addPublished.text.toString()
       val description = binding.addDescription.text.toString()
 
+      if (author.isEmpty() || name.isEmpty() || price.isEmpty() || genre.isEmpty() ||
+        language.isEmpty() || noOfPages.isEmpty() || published.isEmpty() || description.isEmpty()
+      ) {
+        Toast.makeText(this, "All fields are required", Toast.LENGTH_LONG).show()
+        return@setOnClickListener
+      }
+
       val call = api.addBook(
         name,author,price,noOfPages,language,genre,description,published
       )
-      Log.d("YourActivity", "Author: $author")
-      Log.d("YourActivity", "Name: $name")
-      Log.d("YourActivity", "Price: $price")
-      Log.d("YourActivity", "Genre: $genre")
-      Log.d("YourActivity", "Language: $language")
-      Log.d("YourActivity", "No of Pages: $noOfPages")
-      Log.d("YourActivity", "Published: $published")
-      Log.d("YourActivity", "Description: $description")
       call.enqueue(object : Callback<Void> {
         override fun onResponse(call: Call<Void>, response: Response<Void>) {
           if (response.isSuccessful) {
@@ -68,7 +69,8 @@ class FrameElevenActivity : BaseActivity<ActivityFrameElevenBinding>(R.layout.ac
         }
       })
 
-        val destIntent = MainpageActivity.getIntent(this, null)
+      Toast.makeText(this, "Book Inserted successfully", Toast.LENGTH_SHORT).show()
+        val destIntent = MainActivityF.getIntent(this, null)
         startActivity(destIntent)
     }
     binding.imageArrowleft.setOnClickListener {

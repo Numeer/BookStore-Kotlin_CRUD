@@ -33,20 +33,22 @@ class BookAdapter(private val context: Context) : RecyclerView.Adapter<BookAdapt
         val book = books?.get(position)
         if (book != null) {
             holder.bind(book)
-            var noOfPages = "No Of Pages : "
+            var noOfPages = "No Of Pages :"
             noOfPages += book.fields.numberOfPages
 
-            var lang = "Language : "
+            var lang = "Language :"
             lang += book.fields.language
 
-            var publish = "Published : "
+            var publish = "Published :"
             publish += book.fields.published
 
-            var genre = "Genre : "
+            var genre = "Genre :"
             genre += book.fields.genre
 
             var price = "$"
             price += book.fields.price
+
+
             val bookoneModel = BookoneModel(
                 txtTHETRIALSOFA = book.name,
                 txtRICKRIORDAN = book.fields.author,
@@ -55,12 +57,10 @@ class BookAdapter(private val context: Context) : RecyclerView.Adapter<BookAdapt
                 txtLanguageOne = lang,
                 txtLanguageTwo = publish,
                 txtDescription = genre,
-                txtDescriptionOne = book.fields.description
+                txtDescriptionOne = book.fields.description,
+                imageImageOne = "http://172.26.7.68:8000/media/${book.fields.coverImage}"
                 )
             holder.itemView.setOnClickListener {
-                Log.d("Adapter", "Name: ${book.name}")
-                Log.d("Adapter", "Author: ${book.fields.author}")
-
                 val intent = Intent(context, BookoneActivity::class.java)
                 intent.putExtra("BOOKONE_MODEL", bookoneModel)
                 context.startActivity(intent)
@@ -78,12 +78,12 @@ class BookAdapter(private val context: Context) : RecyclerView.Adapter<BookAdapt
         private val coverImageView: ImageView = itemView.findViewById(R.id.imageViewBook)
 
         fun bind(book: Book) {
-            nameTextView.text = "Book Name: ${book.name}"
-            authorTextView.text = "Author: ${book.fields.author}"
-//            Glide.with(itemView)
-//                .load(book.fields.coverImage) // Assuming coverImage is the URL or resource ID of the image
-//                .into(coverImageView)
-
+            nameTextView.text = "${book.name}"
+            authorTextView.text = "${book.fields.author}"
+            Log.d("Adapterrrrrrr","${book.fields.author}")
+            Glide.with(itemView)
+                .load("http://172.26.7.68:8000/media/${book.fields.coverImage}")
+                .into(coverImageView)
         }
     }
 }

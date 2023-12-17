@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.nomisapplication.app.MainActivityF
 import com.nomisapplication.app.R
@@ -31,6 +32,8 @@ class SignupActivity : BaseActivity<ActivitySignupBinding>(R.layout.activity_sig
 
   override fun setUpClicks(): Unit {
     binding.imageArrowleft.setOnClickListener {
+      Toast.makeText(this, "Sign Up successfully", Toast.LENGTH_LONG).show()
+
       val destIntent = FirstpageActivity.getIntent(this, null)
       startActivity(destIntent)
       finish()

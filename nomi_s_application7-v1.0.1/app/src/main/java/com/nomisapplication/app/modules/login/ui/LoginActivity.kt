@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
+import com.nomisapplication.app.MainActivityF
 import com.nomisapplication.app.R
 import com.nomisapplication.app.appcomponents.base.BaseActivity
 import com.nomisapplication.app.databinding.ActivityLoginBinding
@@ -31,7 +32,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(R.layout.activity_login
       finish()
     }
     binding.btnLoginOne.setOnClickListener {
-      val destIntent = MainpageActivity.getIntent(this, null)
+      val destIntent = MainActivityF.getIntent(this, null)
       startActivity(destIntent)
     }
   }

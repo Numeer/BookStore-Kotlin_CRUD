@@ -18,9 +18,21 @@ interface BookApi {
         @Query("published") published: String
     ): Call<Void>
 
+    @GET("/updateBook")
+    fun updateBook(
+        @Query("name") name: String,
+        @Query("author") author: String,
+        @Query("price") price: String,
+        @Query("noOfPages") noOfPages: String,
+        @Query("language") language: String,
+        @Query("genre") genre: String,
+        @Query("description") description: String,
+        @Query("published") published: String
+    ): Call<Void>
+
     @GET("/allBooks")
     fun getAllBooks(): Call<List<Book>>
 
-    @DELETE("/delBook")
+    @GET("/delBook")
     fun deleteBook(@Query("name") name: String): Call<String>
 }
